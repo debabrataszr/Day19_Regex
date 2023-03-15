@@ -11,6 +11,7 @@ public class UserRegistration {
         ug.mobileNumber();
         ug.password();
         ug.upperCasePassword();
+        ug.numericPassword();
     }
 
     public void firstName() {
@@ -45,6 +46,16 @@ public class UserRegistration {
     public void upperCasePassword() {
         Pattern pattern2 = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z]).+${8,}");
         Matcher matcher2 = pattern2.matcher("Debabrat");
+        if (matcher2.matches() == true) {
+            System.out.println("Correct Password");
+        } else {
+            System.out.println("Incorrect Password");
+        }
+    }
+
+    public void numericPassword() {
+        Pattern pattern2 = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).+${8,}");
+        Matcher matcher2 = pattern2.matcher("Debabrata23");
         if (matcher2.matches() == true) {
             System.out.println("Correct Password");
         } else {
