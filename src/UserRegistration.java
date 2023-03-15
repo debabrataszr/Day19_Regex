@@ -12,6 +12,7 @@ public class UserRegistration {
         ug.password();
         ug.upperCasePassword();
         ug.numericPassword();
+        ug.specialCharPassword();
     }
 
     public void firstName() {
@@ -57,6 +58,15 @@ public class UserRegistration {
         Pattern pattern2 = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).+${8,}");
         Matcher matcher2 = pattern2.matcher("Debabrata23");
         if (matcher2.matches() == true) {
+            System.out.println("Correct Password");
+        } else {
+            System.out.println("Incorrect Password");
+        }
+    }
+    public void specialCharPassword() {
+        Pattern patternThree = Pattern.compile("^(?=.+[a-z])(?=.+[A-Z])(?=.+[0-9])(?=.+[-+_!@#$%^&*., ?]).+${8,}");
+        Matcher matcherThree = patternThree.matcher("Debabrat4S@hoo");
+        if (matcherThree.matches() == true) {
             System.out.println("Correct Password");
         } else {
             System.out.println("Incorrect Password");
