@@ -13,6 +13,7 @@ public class UserRegistration {
         ug.upperCasePassword();
         ug.numericPassword();
         ug.specialCharPassword();
+        ug.verifyEmailSamples();
     }
 
     public void firstName() {
@@ -63,6 +64,7 @@ public class UserRegistration {
             System.out.println("Incorrect Password");
         }
     }
+
     public void specialCharPassword() {
         Pattern patternThree = Pattern.compile("^(?=.+[a-z])(?=.+[A-Z])(?=.+[0-9])(?=.+[-+_!@#$%^&*., ?]).+${8,}");
         Matcher matcherThree = patternThree.matcher("Debabrat4S@hoo");
@@ -70,6 +72,26 @@ public class UserRegistration {
             System.out.println("Correct Password");
         } else {
             System.out.println("Incorrect Password");
+        }
+    }
+
+    private void verifyEmailSamples() {
+        String[] validEmails = {"abc@yahoo.com", "abc-100@yahoo.com", "abc.100@yahoo.com",
+                "abc111@abc.com", "abc-100@abc.net", "abc.100@abc.com.au",
+                "abc@1.com", "abc@gmail.com.com", "abc+100@gmail.com"};
+
+        String[] inValidEmails = {"abc", "abc@.com.my", "abc123@gmail.a", "abc123@.com", "abc123@.com.com",
+                ".abc@abc.com", "abc()*@gmail.com", "abc@%*.com", "abc..2002@gmail.com", "abc.@gmail.com",
+                "abc@abc@gmail.com", "abc@gmail.com.1a", "abc@gmail.com.aa.au"};
+
+        for (int i = 0; i < validEmails.length; i++) {
+            System.out.println("Result for emails = " + (i + 1) + " "
+                    + Pattern.matches("[a-z-+0-9]+[.]?[a-z0-9]+[@][a-z0-9]+[.][a-z]{2,4}[.]?[a-z]{0,3}", validEmails[i]));
+        }
+        System.out.println("\nFor Invalid Emails ");
+        for (int i = 0; i < inValidEmails.length; i++) {
+            System.out.println("Result for emails = " + (i + 1) + " "
+                    + Pattern.matches("[a-z-+0-9]+[.]?[a-z0-9]+[@][a-z0-9]+[.][a-z]{2,4}[.]?[a-z]{0,3}", inValidEmails[i]));
         }
     }
 }
