@@ -7,6 +7,7 @@ public class UserRegistration {
         UserRegistration ug = new UserRegistration();
         ug.firstName();
         ug.lastName();
+        ug.emailId();
     }
 
     public void firstName() {
@@ -21,5 +22,10 @@ public class UserRegistration {
         Matcher matcher2 = pattern2.matcher("Sahoo");
         boolean value2 = matcher2.matches();
         System.out.println("Result for Last Name : " + value2);
+    }
+
+    public void emailId() {
+        System.out.println("Result for EmailId : " + Pattern.compile("[a-z]+[.]?[a-z]{0,}[@][a-z]+[.][a-z]{2,4}[.]?[a-z]{0,2}")
+                .matcher("abc@yahoo.com").matches());
     }
 }
