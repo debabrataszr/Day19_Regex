@@ -10,6 +10,7 @@ public class UserRegistration {
         ug.emailId();
         ug.mobileNumber();
         ug.password();
+        ug.upperCasePassword();
     }
 
     public void firstName() {
@@ -39,5 +40,15 @@ public class UserRegistration {
         Pattern pattern = Pattern.compile("[A-Za-z]{8,}");
         Matcher matcher = pattern.matcher("Debabrat");
         System.out.println("Result for minimum 8 Character : " + matcher.matches());
+    }
+
+    public void upperCasePassword() {
+        Pattern pattern2 = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z]).+${8,}");
+        Matcher matcher2 = pattern2.matcher("Debabrat");
+        if (matcher2.matches() == true) {
+            System.out.println("Correct Password");
+        } else {
+            System.out.println("Incorrect Password");
+        }
     }
 }
