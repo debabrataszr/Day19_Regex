@@ -1,6 +1,7 @@
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class UserRegistration {
+    
     public static void main(String[] args) {
         System.out.println("Welcome to User Registration");
         UserRegistration ug = new UserRegistration();
@@ -11,6 +12,8 @@ public class UserRegistration {
         ug.password();
         ug.upperCasePassword();
         ug.numericPassword();
+        ug.specialCharPassword();
+        ug.verifyEmailSamples();
     }
 
     public void firstName() {
@@ -35,11 +38,13 @@ public class UserRegistration {
     public void mobileNumber() {
         System.out.println("Result for Mobile No. : " + Pattern.matches("^[0-9]{2}[ ][0-9]{10}$","91 7978058968"));
     }
+    
     public void password() {
         Pattern pattern = Pattern.compile("[A-Za-z]{8,}");
         Matcher matcher = pattern.matcher("Debabrat");
         System.out.println("Result for minimum 8 Character : " + matcher.matches());
     }
+    
     public void upperCasePassword() {
         Pattern pattern2 = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z]).+${8,}");
         Matcher matcher2 = pattern2.matcher("Debabrat");
@@ -49,6 +54,7 @@ public class UserRegistration {
             System.out.println("Incorrect Password");
         }
     }
+    
     public void numericPassword() {
         Pattern pattern2 = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).+${8,}");
         Matcher matcher2 = pattern2.matcher("Debabrata23");
@@ -56,6 +62,36 @@ public class UserRegistration {
             System.out.println("Correct Password");
         }else {
             System.out.println("Incorrect Password");
+        }
+    }
+    
+     public void specialCharPassword() {
+        Pattern patternThree = Pattern.compile("^(?=.+[a-z])(?=.+[A-Z])(?=.+[0-9])(?=.+[-+_!@#$%^&*., ?]).+${8,}");
+        Matcher matcherThree = patternThree.matcher("Debabrat4S@hoo");
+        if (matcherThree.matches() == true) {
+            System.out.println("Correct Password");
+        } else {
+            System.out.println("Incorrect Password");
+        }
+    }
+
+    private void verifyEmailSamples() {
+        String[] validEmails = {"abc@yahoo.com", "abc-100@yahoo.com", "abc.100@yahoo.com",
+                "abc111@abc.com", "abc-100@abc.net", "abc.100@abc.com.au",
+                "abc@1.com", "abc@gmail.com.com", "abc+100@gmail.com"};
+
+        String[] inValidEmails = {"abc", "abc@.com.my", "abc123@gmail.a", "abc123@.com", "abc123@.com.com",
+                ".abc@abc.com", "abc()*@gmail.com", "abc@%*.com", "abc..2002@gmail.com", "abc.@gmail.com",
+                "abc@abc@gmail.com", "abc@gmail.com.1a", "abc@gmail.com.aa.au"};
+
+        for (int i = 0; i < validEmails.length; i++) {
+            System.out.println("Result for emails = " + (i + 1) + " "
+                    + Pattern.matches("[a-z-+0-9]+[.]?[a-z0-9]+[@][a-z0-9]+[.][a-z]{2,4}[.]?[a-z]{0,3}", validEmails[i]));
+        }
+        System.out.println("\nFor Invalid Emails ");
+        for (int i = 0; i < inValidEmails.length; i++) {
+            System.out.println("Result for emails = " + (i + 1) + " "
+                    + Pattern.matches("[a-z-+0-9]+[.]?[a-z0-9]+[@][a-z0-9]+[.][a-z]{2,4}[.]?[a-z]{0,3}", inValidEmails[i]));
         }
     }
 }
