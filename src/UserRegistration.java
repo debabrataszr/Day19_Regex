@@ -53,9 +53,9 @@ public class UserRegistration {
         Pattern pattern2 = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).+${8,}");
         Matcher matcher2 = pattern2.matcher("Debabrata23");
         if (matcher2.matches()==true){
-            System.out.println("Password is correct with atleast one upperCase and one numeric");
+            System.out.println("Correct Password");
         }else {
-            System.out.println("Password is incorrect");
+            System.out.println("Incorrect Password");
         }
     }
 }
