@@ -33,7 +33,7 @@ public class UserRegistration {
     }
 
     public void mobileNumber() {
-        System.out.println("Result for Mobile No. : " + Pattern.matches("^[0-9]{2}[ ][0-9]{10}$","91 9557885533"));
+        System.out.println("Result for Mobile No. : " + Pattern.matches("^[0-9]{2}[ ][0-9]{10}$","91 7978058968"));
     }
     public void password() {
         Pattern pattern = Pattern.compile("[A-Za-z]{8,}");
