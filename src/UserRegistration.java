@@ -8,6 +8,7 @@ public class UserRegistration {
         ug.firstName();
         ug.lastName();
         ug.emailId();
+        ug.mobileNumber();
     }
 
     public void firstName() {
@@ -27,5 +28,9 @@ public class UserRegistration {
     public void emailId() {
         System.out.println("Result for EmailId : " + Pattern.compile("[a-z]+[.]?[a-z]{0,}[@][a-z]+[.][a-z]{2,4}[.]?[a-z]{0,2}")
                 .matcher("abc@yahoo.com").matches());
+    }
+
+    public void mobileNumber() {
+        System.out.println("Result for Mobile No. : " + Pattern.matches("^[0-9]{2}[ ][0-9]{10}$", "91 7978058968"));
     }
 }
